@@ -1,0 +1,174 @@
+      body {
+          margin: 0;
+          padding: 0;
+          background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+          background-size: 400% 400%;
+          animation: gradientShift 8s ease infinite;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          color: #fff;
+          font-family: 'Arial', sans-serif;
+          overflow: hidden;
+      }
+
+      @keyframes gradientShift {
+          0% {
+              background-position: 0% 50%;
+          }
+
+          50% {
+              background-position: 100% 50%;
+          }
+
+          100% {
+              background-position: 0% 50%;
+          }
+      }
+
+      .stars {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image:
+              radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+              radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+              radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+              radial-gradient(1px 1px at 130px 80px, #eee, transparent),
+              radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+          background-repeat: repeat;
+          background-size: 200px 100px;
+          animation: sparkle 3s linear infinite;
+          z-index: -1;
+      }
+
+      @keyframes sparkle {
+          from {
+              transform: translateY(0);
+          }
+
+          to {
+              transform: translateY(-100px);
+          }
+      }
+
+      .game-container {
+          display: flex;
+          align-items: center;
+          background: rgba(0, 0, 0, 0.3);
+          padding: 30px;
+          border-radius: 15px;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+          border: 1px solid rgba(0, 255, 255, 0.2);
+      }
+
+      canvas {
+          background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+          border: 2px solid #0ff;
+          box-shadow:
+              0 0 20px #0ff,
+              inset 0 0 20px rgba(0, 255, 255, 0.1);
+          border-radius: 10px;
+      }
+
+      #score {
+          margin-left: 30px;
+          font-size: 28px;
+          color: #0ff;
+          text-shadow: 0 0 10px #0ff;
+          background: rgba(0, 0, 0, 0.5);
+          padding: 20px;
+          border-radius: 10px;
+          border: 1px solid rgba(0, 255, 255, 0.3);
+      }
+
+      .title {
+          position: absolute;
+          top: 50px;
+          font-size: 48px;
+          font-weight: bold;
+          color: #0ff;
+          text-shadow: 0 0 20px #0ff;
+          text-align: center;
+          width: 100%;
+      }
+
+      .controls {
+          position: absolute;
+          bottom: 50px;
+          left: 50%;
+          transform: translateX(-50%);
+          text-align: center;
+          color: #aaa;
+          font-size: 16px;
+      }
+
+      .game-over {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.8);
+          display: none;
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+          backdrop-filter: blur(10px);
+      }
+
+      .game-over-content {
+          background: linear-gradient(45deg, #1a1a2e, #16213e);
+          padding: 40px;
+          border-radius: 20px;
+          text-align: center;
+          border: 2px solid #ff4757;
+          box-shadow: 0 0 30px rgba(255, 71, 87, 0.5);
+          animation: gameOverPulse 1.5s ease-in-out infinite alternate;
+      }
+
+      @keyframes gameOverPulse {
+          from {
+              box-shadow: 0 0 30px rgba(255, 71, 87, 0.5);
+          }
+
+          to {
+              box-shadow: 0 0 50px rgba(255, 71, 87, 0.8);
+          }
+      }
+
+      .game-over h1 {
+          font-size: 48px;
+          color: #ff4757;
+          margin: 0 0 20px 0;
+          text-shadow: 0 0 20px #ff4757;
+      }
+
+      .game-over p {
+          font-size: 24px;
+          color: #fff;
+          margin: 10px 0;
+      }
+
+      .restart-button {
+          margin-top: 30px;
+          padding: 15px 30px;
+          font-size: 20px;
+          background: linear-gradient(45deg, #0ff, #00d4ff);
+          color: #000;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          font-weight: bold;
+          transition: all 0.3s ease;
+          box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      }
+
+      .restart-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 25px rgba(0, 255, 255, 0.5);
+      }
